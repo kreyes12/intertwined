@@ -1,11 +1,87 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+  font-family: 'Vollkorn', serif;
+  display: block;
+  text-align: justify;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+#welcome {
+  text-align: center;
+}
+
+#begin-button {
+  font-family: 'Vollkorn', serif;
+  font-size: 15px;
+}
+
+#woods {
+  display: block;
+  height: auto;
+  width: auto;
+  max-width: 400px;
+  max-height: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#scene-text {
+  text-align: justify;
+  margin-left: 80px;
+  margin-right: 80px;
+  font-size: 20px;
+  transition: color 1.5s;
+}
+
+#riddle-text {
+  font-size: 20px;
+  transition: color 1.5s;
+}
+
+.option {
+  font-family: 'Vollkorn', serif;
+  font-size: 20px;
+  display: block;
+}
+
+.option:hover {
+  color: grey;
+}
+
+#select-story {
+  text-align: center;
+}
+
+#story-list {
+  font-size: 20px;
+}
+
+#character-list {
+  font-size: 20px;
+}
+
+#logo {
+  height: auto;
+  width: auto;
+  max-width: 500px;
+  max-height: 500px;
+}
+
+#handg {
+  display: block;
+  height: auto;
+  width: auto;
+  max-width: 300px;
+  max-height: 300px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#submit-button {
+  font-family: 'Vollkorn', serif;
+  font-size: 10px;
 }
 
 code {
