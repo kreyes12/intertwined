@@ -1,6 +1,5 @@
 import React from 'react'
 import Scene from './Scene.js'
-import Riddle from './Riddle.js'
 
 class StoryPage extends React.Component {
   state = {
@@ -18,7 +17,7 @@ class StoryPage extends React.Component {
           sceneEl.style.color = ogColor
         }
       )
-    }, 1200)
+    }, 1300)
   }
 
 
@@ -33,6 +32,11 @@ class StoryPage extends React.Component {
     
     return (
       <div>
+      {
+        currentScene.title && (
+          <img id="logo" src={'../imgs/title.png'}/>
+        )
+      }
       <Scene
         scene={currentScene}
         selectedCharacter={this.props.selectedCharacter}

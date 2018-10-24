@@ -2,6 +2,7 @@ import React from 'react'
 import Riddle from './Riddle.js'
 import Sound from 'react-sound'
 import Rain from './Rain.js'
+import PlayingCards from './PlayingCards'
 
 class Scene extends React.Component {
 
@@ -11,15 +12,17 @@ class Scene extends React.Component {
 
   setDefaultStyles = () => {
     document.body.style.backgroundColor = 'white'
+    document.body.style.color = 'black'
   }
 
   setStyles = () => {
     this.setDefaultStyles()
     if (!this.props.scene.styles) return
 
-    this.props.scene.styles.map(obj => {
-      document.body.style[Object.keys(obj)[0]] = Object.values(obj)[0]
-    })
+    Object.keys(this.props.scene.styles)
+      .map((key, i) => {
+        document.body.style[key] = Object.values(this.props.scene.styles)[i]
+      })
   }
 
   handleInputChange = inputObj => {
@@ -48,8 +51,17 @@ class Scene extends React.Component {
     }
   }
 
+  handleClicks = () => {
+    this.setState({clicks: this.state.clicks + 1});
+    if (this.state.clicks >= 3) {
+      alert('out of guesses!')
+    }
+  }
+
+
   state = {
-    guessAgain: false
+    guessAgain: false,
+    clicks: 0
   }
 
   componentDidMount = () => {
@@ -69,12 +81,7 @@ class Scene extends React.Component {
     this.setStyles()
 
     return (
-      <div id="scene-text">
-        {
-          this.props.scene.title && (
-            <img id="logo" src={'../imgs/title.png'}/>
-          )
-        }
+      <div id="scene-text">  
         {
           this.props.scene.sound && (
             <Sound
@@ -88,6 +95,11 @@ class Scene extends React.Component {
             <Rain />
           )
         }
+        {
+          this.props.scene.cards && (
+            <PlayingCards increaseClicks={this.increaseClicks} handleClicks={this.handleClicks}/>
+          )
+        }
         <img id="handg" src={this.props.scene.image} />
         <p>{this.customiseText(this.props.scene.text)}</p>
         <p>{this.props.scene.question.text}</p>
@@ -95,7 +107,7 @@ class Scene extends React.Component {
         {this.props.scene.inputs && this.props.scene.inputs.map(inputObj => {
           return (
             <>
-            {this.state.guessAgain && <p>That is incorrect. Guess again!</p>}
+            {this.state.guessAgain && <p>That is incorrect. Try again!</p>}
           <input type={inputObj.type} name={inputObj.name} onChange={this.handleInputChange(inputObj)} />
             <button class="option" onClick={() => this.handleGuess(inputObj)}>
               {inputObj.name}
@@ -108,9 +120,9 @@ class Scene extends React.Component {
         <ul>
           {this.props.scene.question.options.map(option => {
             return (
-              <button class="option" onClick={() => this.props.handleOptionSelect(option.goTo)}>
+              <li class="option" onClick={() => this.props.handleOptionSelect(option.goTo)}>
                 {option.text}
-              </button>
+              </li>
             )
           })}
 

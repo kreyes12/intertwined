@@ -5,6 +5,7 @@ class WelcomePage extends React.Component {
   render () {
     return (
       <div>
+        <img id='logo' src={'../imgs/title.png'} />
         <h2 id='welcome'>Welcome to Intertwined</h2>
         <img id='woods' src={'../imgs/weepingwoods.jpg'} />
         <button id='begin-button' onClick={() => this.props.showStories()}>Begin Journey</button>

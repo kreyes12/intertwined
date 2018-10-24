@@ -36,7 +36,6 @@ class App extends Component {
   render () {
     return (
       <div className='App'>
-      <img id="logo" src={'../imgs/title.png'}/>
       {
         this.state.showStories ? 
         <Page 

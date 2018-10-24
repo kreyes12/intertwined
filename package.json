@@ -3,11 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "card-deck": "^1.0.0",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
     "react-rain-animation": "^1.0.4",
     "react-scripts": "2.0.4",
-    "react-sound": "^1.2.0"
+    "react-sound": "^1.2.0",
+    "svg-cards": "^4.0.0"
   },
   "scripts": {
     "start": "react-scripts start",
