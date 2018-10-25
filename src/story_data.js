@@ -37,6 +37,7 @@ const stories = [
       {
         id: 4,
         title: true,
+        image: './imgs/homecoming.png',
         name: 'Picnic Take 2 Scene',
         text: `A few hours later, Hansel and Gretel arrived home. The stepmother looked angry. The father looked happy. "Thank goodness you came home!" the father said. "It was silly of you to get lost," said the stepmother. After Hansel and Gretel went to bed, the parents had a talk. "We have to try it again," said the stepmother. "I cannot. I love them," replied the father. "We are doing it again. Tomorrow." the stepmother said firmly. The next morning, the stepmother gave Hansel and Gretel a loaf of bread, and the family went back to the forest.`,
         question: { text: 'What do you wish to do?', options: [{text: 'Eat the loaf. You are starving!', goTo: 5}, {text: 'Leave a trail of breadcrumbs as you walk along.', goTo: 6}]}
@@ -60,8 +61,9 @@ const stories = [
       {
         id: 7,
         title: true,
-        image: './imgs/birds-bread.jpg',
+        image: './imgs/owl-moon.png',
         name: 'Pre Riddle Scene',
+        sound: './owl-hoot.mp3',
         text: `Very well. Here are the rules to the game. I will recite a riddle, and you will have 3 chances to guess correctly. If you guess correctly within 3 guesses, I shall grant you firewood, and you may stay here for a while. If you lose and do not guess correctly, you have to leave immediately because there are evil creatures lurking around, and they will disturb us if they smell children. Are you ready to play?`,
         question: { text: '', options: [{text: 'Yes.', goTo: 8}]}
       },
@@ -78,6 +80,7 @@ const stories = [
         id: 9,
         title: true,
         image: './imgs/fire.jpg',
+        sound: './bonfire.wav',
         name: 'Fire Scene',
         scaryScene: true,
         text: 'As promised, I shall grant you wood to build a fire. We must flee soon, as the full moon is approaching. Before I depart, remember my words: "You are now in the forest, so dark and deep..where witches and wolves and other beasts creep. Be careful and cautious, and generally beware. Do not be fooled if they seem to show care. It is often an act, perhaps a disguise. I beg you to listen to me, the owl, the wise. Travel swiftly but softly and always be smart. Make good choices, and trust your heart." Hansel built a fire, and the he and his sister cuddled near it to try and stay warm. Suddenly, the owl and all of the birds around them flew away hurriedly. ',
@@ -87,34 +90,34 @@ const stories = [
       {
         id: 10,
         title: true,
-        image: './imgs/birds-bread.jpg',
+        image: './imgs/little-red-2.png',
         name: 'Little Red Scene',
         text: `Oh, thank goodness! Other children..I thought I was alone. Are you lost as well?`,
-        question: { text: '', options: [{text: 'Yes, can you help us?', goTo: 11}, {text: 'No, we are just waiting for our parents.', goTo: 11}]}
+        question: { text: '', options: [{text: 'Yes, who are you? Can you help us?', goTo: 11}, {text: 'No, we are just waiting for our parents.', goTo: 11}]}
       },
       {
         id: 11,
         title: true,
-        image: './imgs/birds-bread.jpg',
+        image: './imgs/little-red-2.png',
         name: 'Little Red Scene Continued',
-        text: `I am also lost. I was on my way to my grandmother's when I ran into a wolf! I had to run away from him, and now I cannot find the path to my granny's. Do you mind if I sit by the fire with you? I have some cakes that we can share.`,
+        text: `Everyone calls me Little Red, as you can tell from this cloak grandmother made me. I am also lost. I was actually on my way to my grandmother's when I ran into a wolf! I had to run away from him, and now I cannot find the path to my granny's. Do you mind if I sit by the fire with you? I have some cakes that we can share.`,
         question: { text: '', options: [{text: 'Of course not. We would love some cake.', goTo: 12}]}
       },
       {
         id: 12,
         title: true,
-        image: './imgs/birds-bread.jpg',
+        image: './imgs/little-red-moon.jpg',
         name: 'Little Red Scene Part 3',
         text: `Thank you, that is very kind. I think we should continue traveling soon while the full moon is still up. Shall we travel together?`,
-        question: { text: '', options: [{text: 'Yes', goTo: 12}]}
+        question: { text: '', options: [{text: 'Yes', goTo: 13}]}
       },
       {
         id: 13,
         title: true,
-        image: './imgs/birds-bread.jpg',
-        name: 'Wolf Scene',
-        text: `"Hello, children", the wolf said leering at Hansel and Gretel with a sinister grin on his face. Are you lost?`,
-        question: { text: '', options: [{text: 'Yes, can you help us?', goTo: 13}]}
+        image: './imgs/fork.png',
+        name: 'Fork in the Road Scene',
+        text: `The children continued their journey through the woods when they reached a fork in the road.`,
+        question: { text: 'Which path will you take?', options: [{text: 'Left', goTo: 18}, {text: 'Right', goTo: 18}]}
       },
       {
         id: 14,
@@ -127,7 +130,7 @@ const stories = [
         },
         rain: true,
         text: `Suddenly, a storm overcame the forest. Hansel and Gretel could barely see, but they heard a sinister voice in the distance. "Hello, who goes there? Little Red, is that you?"`,
-        question: { text: '', options: [{text: 'Who are you?', goTo: 18}, {text: 'Turn around and walk away.', goTo: 15}]}
+        question: { text: '', options: [{text: 'Who are you?', goTo: 19}, {text: 'Turn around and walk away.', goTo: 15}]}
       },
       {
         id: 15,
@@ -162,7 +165,57 @@ const stories = [
                You may choose 3 but have no other peek!
                If you find her highness, oh, what a delight!
                As the torch that I grant you will light this dark night.`,
-        question: { text: '', options: [{text: 'Continue Story', goTo: 19}]}
+        question: { text: '', options: [{text: 'Continue Story', goTo: 18}]}
+      },
+      {
+        id: 18,
+        title: true,
+        image: './imgs/gingerbread-house-1.jpg',
+        name: 'Gingerbread House Scene 1',
+        text: `The children continued onwards but were feeling very exhausted and hungry. Several hours had passed since they last rested, and the night was growing colder. They came across some sweets along the path. "Look!" Gretel shouted. "Maybe someone else went for a walk and decided to leave this trail of sweets behind. Perhaps if we follow it, we will find shelter!" The children continued to follow the sweets and suddenly saw a light in the distance and what looked like the silhouette of a house.`,
+        question: { text: '', options: [{text: 'Walk toward the house.', goTo: 19}]}
+      },
+      {
+        id: 19,
+        title: true,
+        image: './imgs/sweet-house.jpg',
+        name: 'Gingerbread House Scene 2',
+        text: `The children couldn't believe their eyes (or noses!). As they approached the house, the most delicious aromas pervaded the air, and they realised that it was constructed entirely of gingerbread and sweets! An old woman opened the door and greeted them. "Oh, what a delightful surprise! I rarely have guests visit at this hour. You children look cold. Why don't you come inside for a nice warm meal?"`,
+        question: { text: '', options: [{text: 'Thank you! We would love that.', goTo: 20}]}
+      },
+      {
+        id: 20,
+        title: true,
+        image: './imgs/cage1.jpg',
+        sound: './witch-laugh.wav',
+        name: 'Witch Scene',
+        text: `After the children stepped inside, the woman suddenly transformed into a haggard witch. She cackled sinisterly and said, "You silly children fell for my trap! It is not you but me who will be enjoying a delectable meal tonight." She grabbed Hansel and Gretel and locked them in a cage. Little Red managed to slip away and assured Hansel and Gretel that she would go seek help and return for them.`,
+        question: { text: '', options: [{text: 'Continue Story', goTo: 21}]}
+      },
+      {
+        id: 21,
+        title: true,
+        image: './imgs/cage2.jpg',
+        name: 'Cage Scene',
+        text: `While the witch was not looking, a frog suddenly jumped to the edge of the cage and croaked, "Sweet children! I am so sorry that you are trapped. I am also trapped, but I think we may be able to help each other."`,
+        question: { text: '', options: [{text: 'How?', goTo: 22}]}
+      },
+      {
+        id: 22,
+        title: true,
+        image: './imgs/gingerbread-house-1.jpg',
+        name: 'Frog Scene',
+        text: `"The evil witch cast a terrible spell on me, but I cannot save you unless it is broken. I know the words that will break the spell, but the spell prevents me from actually saying them. I have a scroll that serves as a clue. Do you think you can solve it?"`,
+        question: { text: '', options: [{text: 'Yes, we can try!', goTo: 23}]}
+      },
+      {
+        id: 23,
+        title: true,
+        image: './imgs/scroll.png',
+        name: 'Scroll Scene',
+        text: ``,
+        question: { text: '', options: [{text: '', goTo: 23}]},
+        responses: [{ type: 'text', name: 'guess', correctAnswer: 'Follow your heart to find your way home.', goTo: { correct: 24, incorrect: 23}}]
       }
 
     ]

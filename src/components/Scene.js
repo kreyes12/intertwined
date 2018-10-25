@@ -34,22 +34,35 @@ class Scene extends React.Component {
   }
 
   handleGuess = inputObj => {
-    if (this.state[inputObj.name] === inputObj.correctAnswer) {
-      this.props.handleOptionSelect(inputObj.goTo.correct)
-    } else {
-      this.setState({
-        [inputObj.name + 'Guesses']: this.state[inputObj.name + 'Guesses'] === undefined ? 1 : this.state[inputObj.name + 'Guesses'] + 1
-      }, () => {
-        if (this.state[inputObj.name + 'Guesses'] >= 3) {
-          this.props.handleOptionSelect(inputObj.goTo.incorrect)
+    switch (this.props.scene.name) {
+      case 'Riddle Scene':
+        // do riddle stuff
+        if (this.state[inputObj.name] === inputObj.correctAnswer) {
+          this.props.handleOptionSelect(inputObj.goTo.correct)
         } else {
           this.setState({
-            guessAgain: true
+            [inputObj.name + 'Guesses']: this.state[inputObj.name + 'Guesses'] === undefined ? 1 : this.state[inputObj.name + 'Guesses'] + 1
+          }, () => {
+            if (this.state[inputObj.name + 'Guesses'] >= 3) {
+              this.props.handleOptionSelect(inputObj.goTo.incorrect)
+            } else {
+              this.setState({
+                guessAgain: true
+              })
+            }
           })
         }
-      })
+        break;
+      case 'Scroll Scene':
+        // do scroll stuff
+        if (this.state[inputObj.name] === inputObj.correctAnswer) {
+          this.props.handleOptionSelect(inputObj.goTo.correct)
+        }
+        break;
     }
   }
+
+  
 
   handleClicks = () => {
     this.setState({clicks: this.state.clicks + 1});
